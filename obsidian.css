@@ -104,11 +104,10 @@
   /* --text-accent-hover: # */
   --text-header: var(--gray-700);
   --text-normal: var(--gray-800);
-  --text-muted: var(--gray-500);
+  --text-muted: var(--gray-600);
   --text-faint: var(--gray-200);
   --text-hashtag: var(--red-ink-300);
-  --ul-marker-1: var(--blue-500);
-  --ul-marker-2: var(--blue-400);
+  --ul-marker: var(--blue-300);
   --text-code: var(--red-ink-400);
   --text-code-selected: var(--white);
   --text-tag: var(--white-greeny);
@@ -122,9 +121,9 @@
   /* --text-on-accent: # */
   /* --interactive-normal: # */
   /* --interactive-hover: # */
-  /* --interactive-accent: # */
+  --interactive-accent: var(--blue-400);
   /* --interactive-accent-rgb: */
-  /* --interactive-accent-hover: # */
+  --interactive-accent-hover: var(--blue-400);
   /* --scrollbar-active-thumb-bg: rgba( */
   /* --scrollbar-bg: rgba( */
   /* --scrollbar-thumb-bg: rgba( */
@@ -132,18 +131,27 @@
 }
 
 /* Status Bar */
+.status-bar {
+  background-color: var(--blue-500);
+  color: var(--white);
+}
 
 /* Markdown Source View*/
 /* 0. Global */
-html, body {
+.CodeMirror-lines,
+.markdown-preview-sizer{
   font-size: 20px;
   line-height: 1.8;
+}
+
+.markdown-source-view.is-readable-line-width .CodeMirror{
+  max-width: 40rem;
 }
 
 
 .markdown-source-view {
   font-family: SF Pro Display, PingFangSC-Light;
-  letter-spacing: .6px;
+  letter-spacing: .7px;
 }
 
 .markdown-preview-view {
@@ -169,27 +177,29 @@ html, body {
 
 .cm-header-2,
 .markdown-preview-section h2{
-  font-size: 36px;
+  font-size: 32px;
 }
 
 .cm-header-3,
 .markdown-preview-section h3{
-  font-size: 32px;
+  font-size: 26px;
 }
 
 .cm-header-4,
 .markdown-preview-section h4{
-  font-size: 28px;
+  font-size: 22px;
+  color: var(--text-muted);
 }
 
 .cm-header-5,
 .markdown-preview-section h5{
-  font-size: 24px;
+  font-size: 18px;
+  color: var(--text-muted);
 }
 
 .cm-header-6,
 .markdown-preview-section h6{
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 400 !important;
   color: var(--gray-500);
 }
@@ -205,7 +215,14 @@ html, body {
   font-family: var(--font-serif);
   font-style: italic;
   font-weight: 400;
-  margin: 0 5px;
+  margin-left: 1px;
+  margin-right: 2px;
+}
+
+.markdown-preview-section em{
+  margin-left: 2.5px;
+  margin-right: 5px;
+
 }
 
 .markdown-preview-section em>strong,
@@ -239,44 +256,70 @@ html, body {
 }
 
 .cm-s-obsidian span.cm-hr {
-  line-height: 2.8;
-  color: var(--text-accent);
+  color: var(--text-hashtag);
+  letter-spacing: .5rem;
+  font-size: 12px;
 }
 
 /* Lists */
-.cm-s-obsidian span.cm-formatting-list.cm-formatting-list-ul.cm-list-1 {
-  margin-right: 12px;
-  color: var(--ul-marker-1);
-  font-weight: 600 !important;
+.cm-s-obsidian pre.HyperMD-list-line {
+  height: 36px;
+  padding: auto 4px;
 }
 
-.cm-s-obsidian span.cm-formatting-list.cm-formatting-list-ul.cm-list-2 {
+pre[class*="HyperMD-list-line-"] span.cm-formatting-list.cm-formatting-list-ul{
   margin-right: 10px;
-  color: var(--ul-marker-2);
+  color: var(--ul-marker);
+  font-size: 12px;
 }
 
-.cm-list-2 {
+pre[class*="HyperMD-list-line-1"] span.cm-formatting-list.cm-formatting-list-ul.cm-list-1 {
+  margin-right: 8px;
+  font-size: 18px;
+}
+
+.markdown-preview-view li li,
+pre[class*="HyperMD-list-line-"] span:not(.cm-formatting){
   color: var(--text-muted);
+  font-size: 18px;
+}
+
+pre[class*="HyperMD-list-line-1"] span:not(.cm-formatting){
+  color: var(--text-normal);
+  font-size: 20px;
+}
+
+pre[class*="HyperMD-list-line-2"] span:not(.cm-formatting){
+  font-size: 19px;
 }
 
 .markdown-preview-section li {
-  line-height: 2;
+  line-height: 2.2;
 }
 
 /* Images */
+.markdown-preview-section .internal-embed{
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+}
+
 .markdown-preview-section img {
-  max-width: 60vw;
+  max-width: 62%;
+  text-align: center;
 }
 
 /* Links */
 .cm-formatting.cm-link,
-.cm-formatting.cm-url {
-  color: var(--text-faint) !important;
+.cm-s-obsidian span.cm-formatting.cm-url {
+  color: var(--text-faint);
+  font-size: 19px;
 }
 .cm-s-obsidian span.cm-url {
   text-decoration: none !important;
-  font-style: italic;
   font-weight: 300;
+  font-size: 18.5px;
+  color: var(--gray-500);
 }
 
 .cm-s-obsidian span.cm-url:hover {
@@ -330,13 +373,15 @@ html, body {
 
 /* Inline Codes */
 .cm-s-obsidian span.cm-inline-code.cm-formatting-code{
-  color: var(--red-ink-200);
+  color: var(--text-faint);
 } 
 
 .markdown-preview-section code,
 .cm-s-obsidian span.cm-inline-code:not(.cm-formatting):not(.cm-hmd-indented-code):not(.obsidian-search-match-highlight){
   color: var(--text-code);
   font-family: var(--font-monospace);
+  font-size: 17px;
+  margin: 0 3px;
 }
 
 .markdown-preview-section code::selection {
@@ -347,7 +392,15 @@ html, body {
 .markdown-preview-section code[class*="language-"],
 .cm-hmd-codeblock {
   line-height: 1.8;
+  /* background-color: var(--background-primary-alt); */
 }
+.markdown-preview-section pre[class*="language-"] {
+  background-color: var(--red-ink-100);
+}
+.markdown-preview-section .token.operator {
+  background-color: inherit;
+}
+
 /* Task List */
 /* Tables */
 /* Strikethrough */
@@ -363,14 +416,14 @@ html, body {
 /* Maths */
 /* Highlights */
 .markdown-preview-section mark {
-  padding: 0 6px;
+  padding: 0 2px;
 }
 .cm-s-obsidian span.cm-highlight.cm-formatting {
   color: var(--text-muted);
 }
 
 .cm-highlight:not(.cm-formatting) {
-  padding: 0 4px;
+  padding: 0 2px;
 }
 
 /* Internal Links */
@@ -409,29 +462,38 @@ html, body {
 }
 
 
+.side-dock-ribbon.mod-left.is-collapsed + .workspace-split.mod-left-split{
+  min-width: 0rem;
+}
 
+/* Outside Editor */
+.workspace-leaf-resize-handle:hover {
+  background-color: var(--blue-200);
+}
 
-/* Markdown Preview View */
-/* 0. Global */
+.workspace-ribbon {
+  background-color: var(--blue-800);
+}
 
-/* 1. Headers */
+.side-dock-ribbon-action:hover,
+.workspace-ribbon-collapse-btn:hover {
+  color: var(--blue-300);
+}
 
-/* 2. Horizons */
+/* Header Dragger */
+.view-header-icon:hover {
+  color: var(--text-normal);
+}
 
-/* 3. Lists */
-/* 4. Images */
-/* 5. Links */
-/* 6. Blockquotes */
-/* 7. Inline Codes */
-/* 8. Code Blocks */
-/* 9. Task List */
-/* 10. Tables */
-/* 11. Strikethrough */
-/* 12. Footnotes */
-/* 13. Maths */
-/* 14. Highlights */
-/* 15. Internal Links */
-/* 16. Internal Embeds */
+/* Change Size */
+.workspace-tab-container-inner {
+  font-size: 16px;
+}
+
+/* Nav */
+.nav-folder-title:hover .nav-folder-collapse-indicator svg{
+  color: var(--text-accent-hover);
+}
 
 
 /* Graph View */
