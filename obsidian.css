@@ -1,7 +1,9 @@
 :root {
+
   /* Fonts */
   --font-monospace: 'Andale Mono', Menlo, Monaco, 'Courier New', monospace !important;
-  --font-serif: 'Source Han Serif CN' !important;
+  --font-serif: Baskerville-Italic, 'Source Han Serif CN', serif !important;
+
   /* Gray Scales */
   --gray-900: #202B31;
   --gray-800: #303D44;
@@ -27,59 +29,12 @@
   --blue-100: #BAE4F1;
 
   /* Red Scales */
-  --red-500: #EF5252;
-  --red-400: #E84F59;
-  --red-300: #E95C65;
-
-  /* Red Ink Scales */
-  --red-ink-500: #c75353;
-  --red-ink-400: #D8696A;
-  --red-ink-300: #E68284;
-  --red-ink-200: #F9BDC0;
-  --red-ink-100: #FFFBFE;
-
-  /* Green Scales */
-  --green-900: #34593B;
-  --green-800: #51765C;
-  --green-700: #6D9277;
-  --green-600: #8BAE99;
-  --green-500: #399167;
+  --red-500: #c75353;
+  --red-400: #D8696A;
+  --red-300: #E68284;
+  --red-200: #F9BDC0;
 }
-.theme-dark {
-  --background-primary: black;
-  /* --background-primary: #
-  --background-primary-alt: #
-  --background-secondary: #
-  --background-secondary-alt: #
-  --background-accent: #
-  --background-modifier-border: #
-  --background-modifier-form-field: #
-  --background-modifier-form-field-highlighted: #
-  --background-modifier-box-shadow: rgba(
-  --background-modifier-success: #
-  --background-modifier-error: #
-  --background-modifier-error-rgb:
-  --background-modifier-error-hover: #
-  --background-modifier-cover: rgba(
-  --text-accent: #
-  --text-accent-hover: #
-  --text-normal: #
-  --text-muted: #
-  --text-faint: #
-  --text-error: #
-  --text-error-hover: #
-  --text-highlight-bg: rgba(
-  --text-selection: rgba(
-  --text-on-accent: #
-  --interactive-normal: #
-  --interactive-hover: #
-  --interactive-accent: #
-  --interactive-accent-rgb:
-  --interactive-accent-hover: #
-  --scrollbar-active-thumb-bg: rgba(
-  --scrollbar-bg: rgba(
-  --scrollbar-thumb-bg: rgba( */
-} 
+
 
 .theme-light{
   --background-primary: var(--white);
@@ -106,9 +61,9 @@
   --text-normal: var(--gray-800);
   --text-muted: var(--gray-600);
   --text-faint: var(--gray-200);
-  --text-hashtag: var(--red-ink-300);
-  --ul-marker: var(--blue-300);
-  --text-code: var(--red-ink-400);
+  --text-hashtag: var(--red-300);
+  --ul-marker: var(--blue-600);
+  --text-code: var(--red-500);
   --text-code-selected: var(--white);
   --text-tag: var(--white-greeny);
   --text-tag-hover: var(--white);
@@ -122,7 +77,7 @@
   /* --interactive-normal: # */
   /* --interactive-hover: # */
   --interactive-accent: var(--blue-400);
-  /* --interactive-accent-rgb: */
+  --interactive-accent-rgb: var(--blue-400);
   --interactive-accent-hover: var(--blue-400);
   /* --scrollbar-active-thumb-bg: rgba( */
   /* --scrollbar-bg: rgba( */
@@ -130,14 +85,15 @@
 
 }
 
+
 /* Status Bar */
 .status-bar {
-  background-color: var(--blue-500);
+  background-color: var(--blue-600);
   color: var(--white);
 }
 
-/* Markdown Source View*/
-/* 0. Global */
+
+/* Editor Global */
 .CodeMirror-lines,
 .markdown-preview-sizer{
   font-size: 20px;
@@ -145,29 +101,32 @@
 }
 
 .markdown-source-view.is-readable-line-width .CodeMirror{
-  max-width: 40rem;
+  max-width: 50rem;
 }
 
-
 .markdown-source-view {
-  font-family: SF Pro Display, PingFangSC-Light;
+  font-family: SF Pro Display, PingFangSC-Light, sans-serif;
   letter-spacing: .7px;
 }
 
 .markdown-preview-view {
-  font-family: SF Pro Display, PingFangSC-Thin;
+  font-family: SF Pro Display, PingFangSC-Thin, sans-serif;
   letter-spacing: .8px;
 }
+
 
 /* Paragraphs */
 .CodeMirror-line > span, 
 .markdown-preview-section p {
   color: var(--text-normal);
 }
+
+
 /* Headers */
 .cm-header,h1,h2,h3,h4,h5,h6 {
   color: var(--text-header);
   line-height: 2 !important;
+  font-family: SF Pro Display, PingFangSC-Medium, sans-serif;
 }
 
 .cm-header-1,
@@ -209,27 +168,22 @@
   color: var(--text-hashtag);
 }
 
+
 /* Emphasis */
 .markdown-preview-section em,
 .cm-em {
   font-family: var(--font-serif);
-  font-style: italic;
   font-weight: 400;
-  margin-left: 1px;
-  margin-right: 2px;
+  font-style: normal;
 }
 
 .markdown-preview-section em{
-  margin-left: 2.5px;
-  margin-right: 5px;
-
+  font-style: normal;
 }
 
 .markdown-preview-section em>strong,
 .cm-em.cm-strong {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 600;
+  font-family: Baskerville-SemiboldItalic, 'Source Han Serif CN';
   color: #000;
 }
 
@@ -242,7 +196,7 @@
 .markdown-preview-section strong,
 .cm-strong {
   color: var(--gray-900);
-  font-family: PingFangSC-Regular;
+  font-family: SF Pro Display, PingFangSC-Regular, sans-serif;
   font-weight: 400;
   font-style: normal;
 }
@@ -256,15 +210,15 @@
 }
 
 .cm-s-obsidian span.cm-hr {
-  color: var(--text-hashtag);
+  color: var(--text-muted);
   letter-spacing: .5rem;
   font-size: 12px;
 }
 
+
 /* Lists */
 .cm-s-obsidian pre.HyperMD-list-line {
-  height: 36px;
-  padding: auto 4px;
+  padding: 0 4px;
 }
 
 pre[class*="HyperMD-list-line-"] span.cm-formatting-list.cm-formatting-list-ul{
@@ -280,7 +234,7 @@ pre[class*="HyperMD-list-line-1"] span.cm-formatting-list.cm-formatting-list-ul.
 
 .markdown-preview-view li li,
 pre[class*="HyperMD-list-line-"] span:not(.cm-formatting){
-  color: var(--text-muted);
+  color: var(--gray-700);
   font-size: 18px;
 }
 
@@ -297,6 +251,7 @@ pre[class*="HyperMD-list-line-2"] span:not(.cm-formatting){
   line-height: 2.2;
 }
 
+
 /* Images */
 .markdown-preview-section .internal-embed{
   display: flex;
@@ -306,8 +261,8 @@ pre[class*="HyperMD-list-line-2"] span:not(.cm-formatting){
 
 .markdown-preview-section img {
   max-width: 62%;
-  text-align: center;
 }
+
 
 /* Links */
 .cm-formatting.cm-link,
@@ -316,7 +271,7 @@ pre[class*="HyperMD-list-line-2"] span:not(.cm-formatting){
   font-size: 19px;
 }
 .cm-s-obsidian span.cm-url {
-  text-decoration: none !important;
+  text-decoration: none;
   font-weight: 300;
   font-size: 18.5px;
   color: var(--gray-500);
@@ -327,49 +282,56 @@ pre[class*="HyperMD-list-line-2"] span:not(.cm-formatting){
   cursor: pointer;
 }
 
+.cm-s-obsidian span.cm-link:not(.cm-formatting) {
+  color: var(--text-accent) !important;
+}
+
 .markdown-preview-section a,
-.markdown-preview-section .internal-link {
+.markdown-preview-section a:hover,
+.markdown-preview-section a:active,
+.markdown-preview-section .internal-link:not(.cm-strikethrough) {
   text-decoration: none;
 }
 
-.markdown-preview-section a:hover{
-  text-decoration: none;
-}
-
-.markdown-preview-section a:active{
-  text-decoration: none;
-}
 
 /* Blockquotes */
 .cm-s-obsidian span.cm-formatting-quote {
   color: var(--text-accent);
 }
+
 .cm-quote {
   font-family: var(--font-serif);
   letter-spacing: 0.4px;
   font-weight: 400;
 }
+
 .markdown-preview-section blockquote {
   font-family: var(--font-serif);
-  font-weight: 300;
   border: none;
   border-left: 0.5px solid var(--text-faint);
+  margin: 3rem 0;
 }
+
 .markdown-preview-section blockquote>p{
   color:  var(--text-accent);
   margin-top: 1.2rem;
 }
+
 .markdown-preview-section blockquote>p:first-of-type{
   margin-top: 0;
 }
+
 .markdown-preview-section blockquote>p::selection {
   background-color: var(--background-code-selected);
   color: var(--text-code-selected) !important;
 }
+
+
 /* Escape Backslash */
 .cm-s-obsidian span.cm-hmd-escape-backslash{
   color: var(--text-faint);
 }
+
 
 /* Inline Codes */
 .cm-s-obsidian span.cm-inline-code.cm-formatting-code{
@@ -377,7 +339,7 @@ pre[class*="HyperMD-list-line-2"] span:not(.cm-formatting){
 } 
 
 .markdown-preview-section code,
-.cm-s-obsidian span.cm-inline-code:not(.cm-formatting):not(.cm-hmd-indented-code):not(.obsidian-search-match-highlight){
+.cm-s-obsidian span.cm-inline-code:not(.cm-formatting){
   color: var(--text-code);
   font-family: var(--font-monospace);
   font-size: 17px;
@@ -388,36 +350,83 @@ pre[class*="HyperMD-list-line-2"] span:not(.cm-formatting){
   background-color: var(--background-code-selected);
   color: var(--text-code-selected) !important;
 }
+
+
 /* Code Blocks */
 .markdown-preview-section code[class*="language-"],
 .cm-hmd-codeblock {
   line-height: 1.8;
-  /* background-color: var(--background-primary-alt); */
 }
 .markdown-preview-section pre[class*="language-"] {
-  background-color: var(--red-ink-100);
+  background-color: var(--background-primary-alt);
 }
 .markdown-preview-section .token.operator {
   background-color: inherit;
 }
 
 /* Task List */
+.markdown-preview-view .task-list-item-checkbox {
+  top: -2px;
+  cursor: pointer;
+}
+
+input[type="checkbox" i]:checked {
+  color: #202B31;
+}
+
+
+
 /* Tables */
+
+
 /* Strikethrough */
 .cm-strikethrough,
 .markdown-preview-section s {
-  text-decoration-color: var(--gray-700);
+  text-decoration-color: var(--gray-600);
 }
 .cm-formatting.cm-strikethrough {
-  font-size: 0px;
-  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  color: var(--text-faint);
 }
+
+.cm-s-obsidian span.cm-hmd-internal-link.cm-strikethrough {
+  text-decoration: line-through;
+}
+
+
 /* Footnotes */
+.markdown-preview-section .footnote-link {
+  font-size: 14px;
+}
+.markdown-preview-section .footnote-backref {
+  color: var(--text-accent);
+} 
+.markdown-preview-section .footnote-backref:hover {
+  color: var(--text-accent-hover);
+} 
+.markdown-preview-section section.footnotes {
+  font-family: var(--font-serif);
+}
+
+
 /* Maths */
+.cm-s-obsidian span.cm-math {
+  font-family: var(--font-monospace);
+  font-size: 18px;
+  font-style: normal;
+}
+
+.cm-s-obsidian span.cm-formatting-math {
+  color: var(--text-faint);
+}
+
+
 /* Highlights */
 .markdown-preview-section mark {
   padding: 0 2px;
 }
+
 .cm-s-obsidian span.cm-highlight.cm-formatting {
   color: var(--text-muted);
 }
@@ -426,24 +435,38 @@ pre[class*="HyperMD-list-line-2"] span:not(.cm-formatting){
   padding: 0 2px;
 }
 
+
 /* Internal Links */
 .cm-hmd-internal-link {
   cursor: pointer;
+}
+.cm-s-obsidian span.cm-hmd-internal-link{
+  color: var(--text-accent) !important;
 }
 .cm-s-obsidian span.cm-hmd-internal-link:hover{
   text-decoration: none;
   color: var(--text-accent-hover);
 }
+.cm-formatting-link {
+  color: var(--text-faint) !important;
+}
+
+
 /* Internal Embeds */
+
+
 /* Checkboxes */
+
+
 /* Tags */
 .cm-s-obsidian span.cm-hashtag-begin{
   font-size: 16px;
   color: var(--text-accent);
 }
+
 .cm-s-obsidian span.cm-hashtag-end,
 .markdown-preview-section a.tag {
-  color: var(--text-tag);
+  color: var(--text-tag) !important;
   border-radius: 8px;
   background-color: var(--background-tag);
   padding: 1px 12px;
@@ -462,13 +485,11 @@ pre[class*="HyperMD-list-line-2"] span:not(.cm-formatting){
 }
 
 
-.side-dock-ribbon.mod-left.is-collapsed + .workspace-split.mod-left-split{
-  min-width: 0rem;
-}
+/* Workspace *
 
-/* Outside Editor */
+/* :Global */
 .workspace-leaf-resize-handle:hover {
-  background-color: var(--blue-200);
+  background-color: var(--blue-100);
 }
 
 .workspace-ribbon {
@@ -480,54 +501,64 @@ pre[class*="HyperMD-list-line-2"] span:not(.cm-formatting){
   color: var(--blue-300);
 }
 
-/* Header Dragger */
+.side-dock-ribbon.mod-left.is-collapsed + .workspace-split.mod-left-split{
+  min-width: 0rem;
+}
+
+/* :Header Dragger */
 .view-header-icon:hover {
   color: var(--text-normal);
 }
 
-/* Change Size */
+/* :Change Size */
 .workspace-tab-container-inner {
   font-size: 16px;
 }
 
-/* Nav */
+/* :Nav */
 .nav-folder-title:hover .nav-folder-collapse-indicator svg{
   color: var(--text-accent-hover);
 }
 
+/* :Header Dragger */
+.mod-pin-leaf.is-active {
+  color: var(--red-400);
+}
 
-/* Graph View */
-/*background of graph view pane*/
+
+/* Graph View
+
+/* :background of graph view pane */
 .workspace-leaf-content[data-type = "graph"] .view-content{
   background-color: var(--background-primary);
 }
 
-/*filled color for the circle when not hover*/
+/* :filled color for the circle when not hover */
 .graph-view.color-fill {
-  color: var(--background-secondary);
+  color: var(--text-accent);
 }
 
-/*color for the circle stroke */
+/* :color for the circle stroke */
 .graph-view.color-circle {
-  color: var(--text-normal);
+  color: var(--gray-100);
 }
 
-/*color for the connecting line when not hover*/
+/* :color for the connecting line when not hover */
 .graph-view.color-line {
-  color: var(--background-modifier-border);
+  color: var(--gray-100);
 }
 
-/*color for texts*/
+/* :color for texts */
 .graph-view.color-text {
   color: var(--text-normal);
 }
 
-/*filled color for the circle when hover*/
+/* :filled color for the circle when hover */
 .graph-view.color-fill-highlight {
   color: var(--interactive-accent);
 }
 
-/*color for the connecting line when hover*/
+/* :color for the connecting line when hover */
 .graph-view.color-line-highlight {
-  color: rgb(var(--interactive-accent-rgb));
+  color: var(--blue-200);
 }
