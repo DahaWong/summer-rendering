@@ -438,7 +438,7 @@ pre[class*="HyperMD-list-line-2"] span:not(.cm-formatting)[class*='cm-list-']{
 }
 
 .cm-s-obsidian span.cm-highlight.cm-formatting {
-  color: var(--text-muted);
+  color: var(--gray-400);
 }
 
 .cm-highlight:not(.cm-formatting) {
