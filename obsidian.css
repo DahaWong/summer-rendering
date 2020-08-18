@@ -7,7 +7,7 @@
 
   /* Fonts */
   --font-monospace: 'Andale Mono', Menlo, Monaco, 'Courier New', monospace !important;
-  --font-italic: Baskerville-Italic, 'Snell Roundhand', Times-Italic, Didot-Italic, 'Baskerville', 'Didot', 'Times New Roman', 'Source Han Serif CN', 'Adobe Song Std', 'STSong', 'Song Ti SC', serif !important;
+  --font-italic: Baskerville-Italic, 'Snell Roundhand', Times-Italic, Didot-Italic, Baskerville, Didot, 'Times New Roman', 'Source Han Serif CN', 'Adobe Song Std', STSong, 'Song Ti SC', serif !important;
 
   /* Gray Scales */
   --gray-900: #202B31;
@@ -190,7 +190,7 @@
 
 .markdown-preview-section em>strong,
 .cm-em.cm-strong {
-  font-family: Baskerville-SemiboldItalic, 'Snell Roundhand-Bold', Times-BoldItalic, Didot-Italic, 'Baskerville', 'Didot', 'Times New Roman', 'Source Han Serif CN', 'Adobe Song Std', 'STSong', 'Song Ti SC', serif;
+  font-family: Baskerville-SemiboldItalic, 'Snell Roundhand-Bold', Times-BoldItalic, Didot-Italic, Baskerville, Didot, 'Times New Roman', 'Source Han Serif CN', 'Adobe Song Std', STSong, 'Song Ti SC', serif;
   color: #000;
 }
 
