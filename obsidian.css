@@ -1,8 +1,13 @@
+/* ⚠️ Considering in Chinese language, there is no 'italic' style literally, */
+/* I did some tricks on font-style that, while formatting with italic styles, English letters are italic and Chinese are just a kind of serif. */
+/* … as you can see in --font-italic. */
+/* If you come into any problems with that, just remove the 'font-style: normal' in Emphasis part.  */
+
 :root {
 
   /* Fonts */
   --font-monospace: 'Andale Mono', Menlo, Monaco, 'Courier New', monospace !important;
-  --font-serif: Baskerville-Italic, 'Source Han Serif CN', serif !important;
+  --font-italic: Baskerville-Italic, 'Snell Roundhand', Times-Italic, Didot-Italic, 'Source Han Serif CN', 'Adobe Song Std', 'STSong', 'Song Ti SC', serif !important;
 
   /* Gray Scales */
   --gray-900: #202B31;
@@ -105,28 +110,28 @@
 }
 
 .markdown-source-view {
-  font-family: SF Pro Display, PingFangSC-Light, sans-serif;
+  font-family: SF Pro Display, PingFangSC-Light, graphik-normal-300, PingFang-SC-W3, 'Segoe UI', Roboto, 'Microsoft YaHei UI', 'Source Han Sans SC', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   letter-spacing: .7px;
 }
 
 .markdown-preview-view {
-  font-family: SF Pro Display, PingFangSC-Thin, sans-serif;
+  font-family: SF Pro Display, PingFangSC-Thin, graphik-normal-300, PingFang-SC-W3, 'Segoe UI', Roboto, 'Microsoft YaHei UI', 'Source Han Sans SC', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   letter-spacing: .8px;
 }
 
 
-/* Paragraphs */
+/* :Paragraphs */
 .CodeMirror-line > span, 
 .markdown-preview-section p {
   color: var(--text-normal);
 }
 
 
-/* Headers */
+/* :Headers */
 .cm-header,h1,h2,h3,h4,h5,h6 {
   color: var(--text-header);
   line-height: 2 !important;
-  font-family: SF Pro Display, PingFangSC-Medium, sans-serif;
+  font-family: SF Pro Display, PingFangSC-Medium, graphik-normal-300, PingFang-SC-W3, 'Segoe UI', Roboto, 'Microsoft YaHei UI', 'Source Han Sans SC', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .cm-header-1,
@@ -169,21 +174,23 @@
 }
 
 
-/* Emphasis */
+/* :Emphasis */
 .markdown-preview-section em,
 .cm-em {
-  font-family: var(--font-serif);
+  font-family: var(--font-italic);
   font-weight: 400;
   font-style: normal;
+  /* font-style: italic; */
 }
 
 .markdown-preview-section em{
   font-style: normal;
+  /* font-style: italic; */
 }
 
 .markdown-preview-section em>strong,
 .cm-em.cm-strong {
-  font-family: Baskerville-SemiboldItalic, 'Source Han Serif CN';
+  font-family: Baskerville-SemiboldItalic, 'Snell Roundhand-Bold', Times-BoldItalic, Didot-Italic, 'Source Han Serif CN', 'Adobe Song Std', 'STSong', 'Song Ti SC', serif;
   color: #000;
 }
 
@@ -196,12 +203,13 @@
 .markdown-preview-section strong,
 .cm-strong {
   color: var(--gray-900);
-  font-family: SF Pro Display, PingFangSC-Regular, sans-serif;
+  font-family: SF Pro Display, PingFangSC-Regular, graphik-normal-300, PingFang-SC-W3, 'Segoe UI', Roboto, 'Microsoft YaHei UI', 'Source Han Sans SC', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 400;
   font-style: normal;
+  /* font-style: bold; */
 }
 
-/* Horizons */
+/* :Horizons */
 .markdown-preview-section hr {
   height: .4px;
   width: 20vw;
@@ -216,7 +224,7 @@
 }
 
 
-/* Lists */
+/* :Lists */
 .cm-s-obsidian pre.HyperMD-list-line {
   padding: 0 4px;
 }
@@ -252,7 +260,7 @@ pre[class*="HyperMD-list-line-2"] span:not(.cm-formatting){
 }
 
 
-/* Images */
+/* :Images */
 .markdown-preview-section .internal-embed{
   display: flex;
   justify-content: center;
@@ -264,7 +272,7 @@ pre[class*="HyperMD-list-line-2"] span:not(.cm-formatting){
 }
 
 
-/* Links */
+/* :Links */
 .cm-formatting.cm-link,
 .cm-s-obsidian span.cm-formatting.cm-url {
   color: var(--text-faint);
@@ -294,19 +302,19 @@ pre[class*="HyperMD-list-line-2"] span:not(.cm-formatting){
 }
 
 
-/* Blockquotes */
+/* :Blockquotes */
 .cm-s-obsidian span.cm-formatting-quote {
   color: var(--text-accent);
 }
 
 .cm-quote {
-  font-family: var(--font-serif);
+  font-family: var(--font-italic);
   letter-spacing: 0.4px;
   font-weight: 400;
 }
 
 .markdown-preview-section blockquote {
-  font-family: var(--font-serif);
+  font-family: var(--font-italic);
   border: none;
   border-left: 0.5px solid var(--text-faint);
   margin: 3rem 0;
@@ -327,13 +335,13 @@ pre[class*="HyperMD-list-line-2"] span:not(.cm-formatting){
 }
 
 
-/* Escape Backslash */
+/* :Escape Backslash */
 .cm-s-obsidian span.cm-hmd-escape-backslash{
   color: var(--text-faint);
 }
 
 
-/* Inline Codes */
+/* :Inline Codes */
 .cm-s-obsidian span.cm-inline-code.cm-formatting-code{
   color: var(--text-faint);
 } 
@@ -352,7 +360,7 @@ pre[class*="HyperMD-list-line-2"] span:not(.cm-formatting){
 }
 
 
-/* Code Blocks */
+/* :Code Blocks */
 .markdown-preview-section code[class*="language-"],
 .cm-hmd-codeblock {
   line-height: 1.8;
@@ -364,7 +372,7 @@ pre[class*="HyperMD-list-line-2"] span:not(.cm-formatting){
   background-color: inherit;
 }
 
-/* Task List */
+/* :Task List */
 .markdown-preview-view .task-list-item-checkbox {
   top: -2px;
   cursor: pointer;
@@ -376,10 +384,10 @@ input[type="checkbox" i]:checked {
 
 
 
-/* Tables */
+/* :Tables */
 
 
-/* Strikethrough */
+/* :Strikethrough */
 .cm-strikethrough,
 .markdown-preview-section s {
   text-decoration-color: var(--gray-600);
@@ -395,7 +403,7 @@ input[type="checkbox" i]:checked {
 }
 
 
-/* Footnotes */
+/* :Footnotes */
 .markdown-preview-section .footnote-link {
   font-size: 14px;
 }
@@ -406,11 +414,11 @@ input[type="checkbox" i]:checked {
   color: var(--text-accent-hover);
 } 
 .markdown-preview-section section.footnotes {
-  font-family: var(--font-serif);
+  font-family: var(--font-italic);
 }
 
 
-/* Maths */
+/* :Maths */
 .cm-s-obsidian span.cm-math {
   font-family: var(--font-monospace);
   font-size: 18px;
@@ -422,7 +430,7 @@ input[type="checkbox" i]:checked {
 }
 
 
-/* Highlights */
+/* :Highlights */
 .markdown-preview-section mark {
   padding: 0 2px;
 }
@@ -436,7 +444,7 @@ input[type="checkbox" i]:checked {
 }
 
 
-/* Internal Links */
+/* :Internal Links */
 .cm-hmd-internal-link {
   cursor: pointer;
 }
@@ -452,13 +460,13 @@ input[type="checkbox" i]:checked {
 }
 
 
-/* Internal Embeds */
+/* :Internal Embeds */
 
 
-/* Checkboxes */
+/* :Checkboxes */
 
 
-/* Tags */
+/* :Tags */
 .cm-s-obsidian span.cm-hashtag-begin{
   font-size: 16px;
   color: var(--text-accent);
@@ -485,7 +493,7 @@ input[type="checkbox" i]:checked {
 }
 
 
-/* Workspace *
+/* Workspace */
 
 /* :Global */
 .workspace-leaf-resize-handle:hover {
