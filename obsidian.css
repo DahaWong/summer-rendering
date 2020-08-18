@@ -1,13 +1,14 @@
 /* ⚠️ Considering in Chinese language, there is no 'italic' style literally, */
 /* I did some tricks on font-style that, while formatting with italic styles, English letters are italic and Chinese are just a kind of serif. */
-/* … as you can see in --font-italic. */
+/* As you can see in '--font-italic'. */
+
 /* If you come into any problems with that, just remove the 'font-style: normal' in Emphasis part.  */
 
 :root {
 
   /* Fonts */
   --font-monospace: 'Andale Mono', Menlo, Monaco, 'Courier New', monospace !important;
-  --font-italic: Baskerville-Italic, 'Snell Roundhand', Times-Italic, Didot-Italic, Baskerville, Didot, 'Times New Roman', 'Source Han Serif CN', 'Adobe Song Std', STSong, 'Song Ti SC', serif !important;
+  --font-italic: Baskerville-Italic, 'Snell Roundhand', Times-Italic, Didot-Italic, 'Baskerville', 'Didot', 'Times New Roman', 'Source Han Serif CN', 'Adobe Song Std', 'STSong', 'Song Ti SC', serif !important;
 
   /* Gray Scales */
   --gray-900: #202B31;
@@ -67,7 +68,7 @@
   --text-muted: var(--gray-600);
   --text-faint: var(--gray-200);
   --text-hashtag: var(--red-300);
-  --ul-marker: var(--blue-600);
+  --ul-marker: var(--gray-400);
   --text-code: var(--red-500);
   --text-code-selected: var(--white);
   --text-tag: var(--white-greeny);
@@ -190,7 +191,7 @@
 
 .markdown-preview-section em>strong,
 .cm-em.cm-strong {
-  font-family: Baskerville-SemiboldItalic, 'Snell Roundhand-Bold', Times-BoldItalic, Didot-Italic, Baskerville, Didot, 'Times New Roman', 'Source Han Serif CN', 'Adobe Song Std', STSong, 'Song Ti SC', serif;
+  font-family: Baskerville-SemiboldItalic, 'Snell Roundhand-Bold', Times-BoldItalic, Didot-Italic, 'Baskerville', 'Didot', 'Times New Roman', 'Source Han Serif CN', 'Adobe Song Std', 'STSong', 'Song Ti SC', serif;
   color: #000;
 }
 
@@ -235,28 +236,34 @@ pre[class*="HyperMD-list-line-"] span.cm-formatting-list.cm-formatting-list-ul{
   font-size: 12px;
 }
 
-pre[class*="HyperMD-list-line-1"] span.cm-formatting-list.cm-formatting-list-ul.cm-list-1 {
+pre[class*="HyperMD-list-line-1"] span.cm-formatting-list.cm-formatting-list-ul.cm-list-1[class*='cm-list-'] {
   margin-right: 8px;
   font-size: 18px;
 }
 
 .markdown-preview-view li li,
-pre[class*="HyperMD-list-line-"] span:not(.cm-formatting){
+pre[class*="HyperMD-list-line-"] span:not(.cm-formatting)[class*='cm-list-']{
   color: var(--gray-700);
   font-size: 18px;
 }
 
-pre[class*="HyperMD-list-line-1"] span:not(.cm-formatting){
+pre[class*="HyperMD-list-line-1"] span:not(.cm-formatting)[class*='cm-list-']{
   color: var(--text-normal);
   font-size: 20px;
 }
 
-pre[class*="HyperMD-list-line-2"] span:not(.cm-formatting){
+pre[class*="HyperMD-list-line-2"] span:not(.cm-formatting)[class*='cm-list-']{
   font-size: 19px;
 }
 
 .markdown-preview-section li {
   line-height: 2.2;
+}
+
+/* Ordered Lists */
+.cm-formatting-list-ol {
+  font-family: var(--font-monospace);
+  font-size: 19.5px;
 }
 
 
@@ -377,11 +384,6 @@ pre[class*="HyperMD-list-line-2"] span:not(.cm-formatting){
   top: -2px;
   cursor: pointer;
 }
-
-input[type="checkbox" i]:checked {
-  color: #202B31;
-}
-
 
 
 /* :Tables */
