@@ -101,7 +101,7 @@
 .CodeMirror-lines,
 .markdown-preview-sizer{
   font-size: 20px;
-  line-height: 1.8;
+  line-height: 1.7;
 }
 
 .markdown-source-view.is-readable-line-width .CodeMirror{
@@ -109,13 +109,17 @@
 }
 
 .markdown-source-view {
-  font-family: Seravek, PingFangSC-Light, graphik-normal-300, PingFang-SC-W3, 'Segoe UI', Roboto, 'Microsoft YaHei UI', 'Source Han Sans SC', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  letter-spacing: .5px;
+  font-family: Seravek, PingFangSC-Regular, graphik-normal-300, PingFang-SC-W3, 'Segoe UI', Roboto, 'Microsoft YaHei UI', 'Source Han Sans SC', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  letter-spacing: .7px;
 }
 
 .markdown-preview-view {
-  font-family: Seravek-Light, PingFangSC-Thin, graphik-normal-300, PingFang-SC-W3, 'Segoe UI', Roboto, 'Microsoft YaHei UI', 'Source Han Sans SC', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  letter-spacing: .6px;
+  font-family: Seravek, PingFangSC-Light, graphik-normal-300, PingFang-SC-W3, 'Segoe UI', Roboto, 'Microsoft YaHei UI', 'Source Han Sans SC', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  letter-spacing: .8px;
+}
+
+.CodeMirror-lines, .markdown-preview-sizer{
+  font-size: 20px;
 }
 
 
@@ -128,6 +132,7 @@
 
 p{
   margin-block-start: 0;  
+  margin-block-end: 1.5em
 }
 
 
@@ -140,12 +145,13 @@ p{
 
 .cm-header-1,
 .markdown-preview-section h1{
-  font-size: 28px;
+  font-size: 30px;
 }
 
 .cm-header-2,
 .markdown-preview-section h2{
-  font-size: 26px;
+  font-size: 27px;
+  color: var(--text-normal)
 }
 
 .cm-header-3,
@@ -265,6 +271,9 @@ pre[class*="HyperMD-list-line-2"] span:not(.cm-formatting)[class*='cm-list-']{
 
 ul,ol {
   margin-block-start: 0;
+  /* margin-block-end: 1.5em */
+  position: relative;
+  left: -.8em;
 }
 
 .markdown-preview-section li {
@@ -275,6 +284,10 @@ ul,ol {
 .cm-formatting-list-ol {
   font-family: var(--font-monospace);
   font-size: 19.5px;
+}
+
+ol li::marker{
+  color: blue;
 }
 
 
@@ -395,6 +408,7 @@ ul,ol {
 .markdown-preview-view .task-list-item-checkbox {
   top: -2px;
   cursor: pointer;
+  filter: hue-rotate(132deg);
 }
 
 
