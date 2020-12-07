@@ -1,3 +1,6 @@
+@charset "UTF-8";
+/* CSS Document */
+
 /* ⚠️ Considering in Chinese language, there is no 'italic' style literally, */
 /* I did some tricks on font-style that, while formatting with italic styles, English letters are italic and Chinese are just a kind of serif. */
 /* As you can see in '--font-italic'. */
@@ -8,7 +11,6 @@
 
   /* Fonts */
   --font-monospace: 'Andale Mono', Menlo, Monaco, 'Courier New', monospace !important;
-  --font-italic: Seravek-Italic, 'Snell Roundhand', Times-Italic, Didot-Italic, 'Baskerville', 'Didot', 'Times New Roman', 'Source Han Serif CN', 'Adobe Song Std', 'STSong', 'Song Ti SC', serif !important;
 
   /* Gray Scales */
   --gray-900: #202B31;
@@ -32,7 +34,7 @@
   --blue-400: #3a9ecf;
   --blue-300: #51ACD6;
   --blue-200: #69BBDD;
-  --blue-100: #BAE4F1;
+  --blue-100: rgb(186, 228, 241);
 
   /* Red Scales */
   --red-500: #c75353;
@@ -75,7 +77,8 @@
   --text-accent-hover: var(--blue-300);
   --text-error: var(--red-400);
   --text-error-hover: var(--red-200);
-  --text-highlight-bg: rgba(249, 189, 192, 0.3);
+  --text-highlight: var(--blue-200);
+  --text-highlight-bg: rgba(186, 228, 241, 0.6);
   --text-selection: var(--blue-100);
   --text-on-accent: --text-accent: var(--blue-600);
   /* --interactive-normal: # */
@@ -94,8 +97,13 @@
 .status-bar {
   background-color: var(--blue-600);
   color: var(--white);
+  font-family: var(--font-monospace);
+  font-size: 12px;
 }
 
+/* .status-bar-item:nth-child(2){
+  color: var(--red-400) ;
+} */
 
 /* Editor Global */
 .CodeMirror-lines,
@@ -123,6 +131,10 @@
 }
 
 
+/* :emoji:/:: */
+.cm-s-obsidian span.cm-builtin, .cm-s-obsidian span.cm-hr{
+  color: var(--text-normal)
+}
 
 /* :Paragraphs */
 .CodeMirror-line > span, 
@@ -162,19 +174,18 @@ p{
 
 .cm-header-4,
 .markdown-preview-section h4{
-  font-size: 18px;
-  color: var(--text-muted);
+  font-size: 20px;
 }
 
 .cm-header-5,
 .markdown-preview-section h5{
-  font-size: 16px;
+  font-size: 20px;
   color: var(--text-muted);
 }
 
 .cm-header-6,
 .markdown-preview-section h6{
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 400 !important;
   color: var(--gray-500);
 }
@@ -187,19 +198,29 @@ p{
   margin-bottom: 0;
 }
 
+/* Block Reference Mark, e.g. ^1 */
+a[data-href^="#"]{
+  position: relative;
+  font-size: 12px;
+  top: -.5em;
+}
+
+span.cm-blockid{
+  color: var(--text-muted) !important;
+  font-family: var(--font-monospace);
+  font-size: 0.6em !important;
+}
+
 
 /* :Emphasis */
 .markdown-preview-section em,
 .cm-em {
-  font-family: var(--font-italic);
   font-weight: 400;
-  font-style: normal;
-  /* font-style: italic; */
+  font-style: italic;
 }
 
 .markdown-preview-section em{
-  font-style: normal;
-  /* font-style: italic; */
+  font-style: italic;
 }
 
 .markdown-preview-section em>strong,
@@ -225,16 +246,16 @@ p{
 
 /* :Horizons */
 .markdown-preview-section hr {
-  height: .4px;
+  height: .01px;
   width: 20vw;
   margin: 64px auto;
-  color: var(--gray-900);
+  color: var(--text-muted);
 }
 
 .cm-s-obsidian span.cm-hr {
-  color: var(--text-muted);
+  color: var(--text-faint);
   letter-spacing: .5rem;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 
@@ -335,24 +356,22 @@ ol li::marker{
 
 /* :Blockquotes */
 .cm-s-obsidian span.cm-formatting-quote {
-  color: var(--text-accent);
+  color: var(--text-muted);
 }
 
 .cm-quote {
-  font-family: var(--font-italic);
   letter-spacing: 0.4px;
   font-weight: 400;
 }
 
 .markdown-preview-section blockquote {
-  font-family: var(--font-italic);
   border: none;
   border-left: 0.5px solid var(--text-faint);
   margin: 0.5rem 0 1.5rem;
 }
 
 .markdown-preview-section blockquote>p{
-  color:  var(--text-accent);
+  color: var(--text-muted);
   margin-top: 1.2rem;
 }
 
@@ -404,6 +423,42 @@ ol li::marker{
   background-color: inherit;
 }
 
+.cm-s-obsidian span.cm-def {
+  color: var(--blue-400);
+}
+
+.cm-s-obsidian span.cm-error{
+  color: var(--red-500)
+}
+
+/* Comments */
+.cm-s-obsidian span.cm-comment {
+  color: var(--text-muted);
+}
+
+/* Front Matter */
+span.cm-hmd-frontmatter {
+  font-family: var(--font-monospace);
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+
+.cm-s-obsidian span.cm-meta {
+  color: var(--text-faint);
+}
+
+/* .cm-s-obsidian span.cm-def{
+  letter-spacing: .5rem;
+  color: var(--text-faint);
+  font-size: 13px;
+} */
+
+.cm-s-obsidian span.cm-atom{
+  color: var(--text-muted);
+  font-family: var(--font-monospace);
+}
+
 /* :Task List */
 .markdown-preview-view .task-list-item-checkbox {
   top: -2px;
@@ -450,6 +505,36 @@ input[type=checkbox]:checked {
   font-family: var(--font-italic);
 }
 
+.cm-s-obsidian pre.HyperMD-footnote{
+  padding-left: 5.5px;
+  font-style: italic;
+}
+
+.cm-link.cm-hmd-footnote,
+span.cm-formatting.cm-formatting-link.cm-link.cm-hmd-footnote{
+  font-style:normal;
+}
+.cm-hmd-footnote,
+.cm-hmd-footnote-url{
+  font-size: 15px !important;
+}
+
+.cm-footref{
+  font-size: .5em !important;  
+}
+.cm-hmd-footref2{
+  font-size: .5em !important;
+  /* font-family: var(--font-monospace); */
+  position: relative;
+  top: -.6em;
+  color: var(--text-muted) !important;
+}
+
+.cm-hmd-footref2:hover{
+  color: var(--text-muted) !important;
+}
+
+
 
 /* :Maths */
 .cm-s-obsidian span.cm-math {
@@ -457,6 +542,8 @@ input[type=checkbox]:checked {
   font-size: 18px;
   font-style: normal;
 }
+
+
 
 .cm-s-obsidian span.cm-formatting-math {
   color: var(--text-faint);
@@ -469,7 +556,7 @@ input[type=checkbox]:checked {
 }
 
 .cm-s-obsidian span.cm-highlight.cm-formatting {
-  color: var(--gray-400);
+  color: var(--text-highlight);
 }
 
 .cm-highlight:not(.cm-formatting) {
@@ -618,4 +705,9 @@ input[type=checkbox]:checked {
 /* :color for the connecting line when hover */
 .graph-view.color-line-highlight {
   color: var(--blue-200);
+}
+
+/* Third Party Plugins */
+div[aria-label="Dangerzone Writing"] svg path{
+  fill: var(--text-faint);
 }
